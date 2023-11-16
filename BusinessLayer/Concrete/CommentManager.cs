@@ -13,14 +13,8 @@ namespace BusinessLayer.Concrete
     public class CommentManager : ICommentService
     {
         ICommentDal _commentDal;
-        private EfCommentRepository efCommentRepository;
 
-        public CommentManager(EfCommentRepository efCommentRepository)
-        {
-            this.efCommentRepository = efCommentRepository;
-        }
-
-        public CommentManager(NewsStyleUriParser newsStyleUriParser, ICommentDal commentDal)
+        public CommentManager(ICommentDal commentDal)
         {
             _commentDal = commentDal;
         }
