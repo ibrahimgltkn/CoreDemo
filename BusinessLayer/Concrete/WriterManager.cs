@@ -40,12 +40,12 @@ namespace BusinessLayer.Concrete
 
         public Writer TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _writerdal.GetById(id);
         }
 
         public void Update(Writer t)
         {
-            throw new NotImplementedException();
+            _writerdal.Update(t);
         }
 
 	}
