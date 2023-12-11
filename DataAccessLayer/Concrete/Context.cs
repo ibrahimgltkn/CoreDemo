@@ -43,6 +43,7 @@ namespace DataAccessLayer.Concrete
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
             modelBuilder.Entity<Comment>().ToTable(tb => tb.HasTrigger("AddScoreInComment"));
+            modelBuilder.Entity<Blog>().ToTable(tb => tb.HasTrigger("AddBlogRatingTable"));
 
             base.OnModelCreating(modelBuilder);
             //HomeMatches-->WriterSender
