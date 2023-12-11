@@ -42,9 +42,13 @@ namespace DataAccessLayer.Concrete
                 .HasForeignKey(z => z.ReceiverID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
+            modelBuilder.Entity<Comment>().ToTable(tb => tb.HasTrigger("AddScoreInComment"));
+
             base.OnModelCreating(modelBuilder);
             //HomeMatches-->WriterSender
             //AwayMatches-->WriterReceiver
+
+            
         }
 
         public DbSet<About> Abouts { get; set; }

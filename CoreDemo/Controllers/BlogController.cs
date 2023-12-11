@@ -11,18 +11,22 @@ using Newtonsoft.Json.Linq;
 
 namespace CoreDemo.Controllers
 {
+    [AllowAnonymous]
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         Context c = new Context();
+
+        //[AllowAnonymous]
         public IActionResult Index()
         {
             var values = bm.GetBlogListhWithCategory();
             return View(values);
         }
 
-		public IActionResult BlogReadAll(int id)
+
+        public IActionResult BlogReadAll(int id)
 		{
             ViewBag.i = id;
             var values = bm.GetBlogByID(id);
